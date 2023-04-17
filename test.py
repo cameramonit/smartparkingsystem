@@ -14,7 +14,6 @@ def button():
     except:
         GPIO.cleanup()
 
-
 def checkspace():
     import scan
     import checkspace
@@ -37,7 +36,6 @@ def checkspace():
         print("empty:", empty)
         print("current:", current)
         print("Parking space occupied")
-
 
 def checkall():
 
@@ -74,7 +72,6 @@ def checkall():
 
     print(coordinates_flag)
     print(available)
-
 
 def showall():
 
@@ -120,48 +117,7 @@ def showall():
     else:
         print("No space.")
 
-def showalln():
-
-    # import scan
-    import checkspace
-
-    # scan.scan()
-    
-    empty_image = 'images/test.jpg'
-    current_image = 'images/target.jpg'
-
-    coordinates = [[89, 319, 91, 102, 206, 88, 227, 297],
-[230, 297, 213, 86, 360, 67, 414, 272],
-[418, 271, 365, 66, 493, 52, 570, 249]]
-
-    coordinates_flag = [0,0,0,0,0,0]
-    available = []
-
-    for index, item in enumerate(coordinates):
-
-        empty = checkspace.avg_dark_pixels(empty_image, item)
-        current = checkspace.avg_dark_pixels(current_image, item)
-
-        if abs(current - empty) < 10:
-            coordinates_flag[index] = 0     # if empty
-            available.append(index+1)
-        else:
-            coordinates_flag[index] = 1     # if occupied
-
-        print()
-        print("Slot: ", index+1)
-        print("Empty: ", empty)
-        print("Current: ", current)
-        print()
-
-    import random
-
-    if(len(available)>0):
-        print("Park at slot: ", random.choice(available))
-    else:
-        print("No space.")
-
-def print():
+def print():    # using standard LCD wiring
     from RPLCD import CharLCD
     from RPi import GPIO
 
@@ -191,49 +147,13 @@ def print():
     # Print a message on the LCD
     lcd.write_string('Hello, world!')
 
-
 def i2c():
-    from signal import signal, SIGTERM, SIGHUP, pause
-    from rpi_lcd import LCD
-    lcd = LCD()
-    def safe_exit(signum, frame):
-        exit(1)
-    try:
-        signal(SIGTERM, safe_exit)
-        signal(SIGHUP, safe_exit)
-        lcd.text("Hello,", 1)
-        lcd.text("Raspberry Pi!", 2)
-        pause()
-    except KeyboardInterrupt:
-        pass
-    finally:
-        lcd.clear()
+    import I2C_LCD_driver
+    from time import *
 
+    mylcd = I2C_LCD_driver.lcd()
 
-def lcd():
-    import time
-    import Adafruit_CharLCD as LCD
-
-    # Raspberry Pi pin setup
-    lcd_rs = 25
-    lcd_en = 24
-    lcd_d4 = 23
-    lcd_d5 = 17
-    lcd_d6 = 18
-    lcd_d7 = 22
-    lcd_backlight = 2
-
-    # Define LCD column and row size for 16x2 LCD.
-    lcd_columns = 16
-    lcd_rows = 2
-
-    lcd = LCD.Adafruit_CharLCD(lcd_rs, lcd_en, lcd_d4, lcd_d5, lcd_d6, lcd_d7, lcd_columns, lcd_rows, lcd_backlight)
-
-    lcd.message('Hello\nworld!')
-
-    time.sleep(15.0)
-    lcd.clear()
-
+    mylcd.lcd_display_string("Hello World!", 1)
 
 def servo():
     import RPi.GPIO as GPIO
@@ -254,5 +174,3 @@ def servo():
     SetAngle(30)
     pwm.stop()
     GPIO.cleanup()
-
-
