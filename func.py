@@ -11,9 +11,8 @@ def func():
     empty_image = 'images/test.jpg'
     current_image = 'images/target.jpg'
 
-    coordinates = [[512, 405, 271, 419, 277, 311, 503, 293],
-[503, 293, 278, 311, 280, 203, 486, 191],
-[486, 191, 281, 202, 286, 136, 475, 121]]
+    coordinates = [[504, 405, 266, 420, 270, 306, 493, 294],
+[494, 295, 271, 307, 275, 204, 481, 190]]
 
     coordinates_flag = [0,0,0,0,0,0]
     available = []
