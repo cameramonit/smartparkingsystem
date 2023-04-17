@@ -15,7 +15,7 @@ def barricade():
         GPIO.output(i, False)
         pwm.ChangeDutyCycle(0)
     SetAngle(120)
-    sleep(10)
+    sleep(3)
     SetAngle(30)
     pwm.stop()
     GPIO.cleanup()
