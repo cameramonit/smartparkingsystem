@@ -1,9 +1,9 @@
 def barricade():
-    i = 
+    i = 14
     import RPi.GPIO as GPIO
     from time import sleep
     GPIO.setwarnings(False)
-    GPIO.setmode(GPIO.BOARD)
+    GPIO.setmode(GPIO.BCM)
     GPIO.setup(i, GPIO.OUT)
     pwm=GPIO.PWM(i, 50)
     pwm.start(0)
