@@ -9,7 +9,7 @@ def print(i):
         signal(SIGHUP, safe_exit)
         lcd.text("Welcome.", 1)
         if(i==0):
-            text = "No space." + str(i) 
+            text = "No space."
         else:
             text = "Park at slot: " + str(i) 
         lcd.text(text, 2)
@@ -17,4 +17,4 @@ def print(i):
     except KeyboardInterrupt:
         pass
     finally:
-        pass
+        return
