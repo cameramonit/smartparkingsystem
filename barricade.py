@@ -3,15 +3,15 @@ def barricade():
     from time import sleep
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(4, GPIO.OUT)
-    pwm=GPIO.PWM(4, 50)
+    GPIO.setup(17, GPIO.OUT)
+    pwm=GPIO.PWM(17, 50)
     pwm.start(0)
     def SetAngle(angle):
         duty = angle / 18 + 2
-        GPIO.output(4, True)
+        GPIO.output(17, True)
         pwm.ChangeDutyCycle(duty)
         sleep(1)
-        GPIO.output(4, False)
+        GPIO.output(17, False)
         pwm.ChangeDutyCycle(0)
     SetAngle(120)
     sleep(10)
