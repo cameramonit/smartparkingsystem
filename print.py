@@ -1,4 +1,5 @@
 def print(i):
+    import RPi.GPIO as GPIO
     from signal import signal, SIGTERM, SIGHUP, pause
     from rpi_lcd import LCD
     lcd = LCD()
@@ -13,7 +14,7 @@ def print(i):
         else:
             text = "Park at slot: " + str(i) 
         lcd.text(text, 2)
-        pause()
+        GPIO.cleanup()
     except KeyboardInterrupt:
         pass
     finally:
