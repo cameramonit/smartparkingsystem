@@ -37,4 +37,4 @@ def func():
         barricade.barricade()
     else:
         printi2c.printi2c(0)
-        printi2c("No space.")
+        # print("No space.")
