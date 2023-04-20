@@ -187,6 +187,7 @@ def servo():
 def ir():
     import RPi.GPIO as GPIO
     import time
+    import print
 
     sensor = 16
 
@@ -196,7 +197,9 @@ def ir():
     try: 
         while True:
             if GPIO.input(sensor):
-                print("Object Detected")
+                print.print(1)
+                time.sleep(0.4)
+                print.print(0)
                 while GPIO.input(sensor):
                     time.sleep(0.4)
     except KeyboardInterrupt:
