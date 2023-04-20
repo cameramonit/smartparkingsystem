@@ -197,9 +197,7 @@ def ir():
     try: 
         while True:
             if GPIO.input(sensor):
-                print.print(1)
-                time.sleep(0.4)
-                print.print(0)
+                print("Object Detected")
                 while GPIO.input(sensor):
                     time.sleep(0.4)
     except KeyboardInterrupt:
