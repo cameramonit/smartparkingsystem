@@ -2,6 +2,7 @@ def barricade():
     i = 14
     import RPi.GPIO as GPIO
     from time import sleep
+    GPIO.cleanup()
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(i, GPIO.OUT)
