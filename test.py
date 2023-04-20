@@ -117,7 +117,7 @@ def showall():
     else:
         print("No space.")
 
-def print():    # using standard LCD wiring
+def printlcd():    # using standard LCD wiring
     from RPLCD import CharLCD
     from RPi import GPIO
 
@@ -187,7 +187,7 @@ def servo():
 def ir():
     import RPi.GPIO as GPIO
     import time
-    import print
+    import printi2c
 
     sensor = 16
 

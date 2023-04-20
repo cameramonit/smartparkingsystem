@@ -1,4 +1,4 @@
-import print
+import printi2c
 import barricade
 
 def func():
@@ -36,8 +36,8 @@ def func():
 
     if(len(available)>0):
         # print("Park at slot: ", random.choice(available))
-        print.print(random.choice(available))
+        printi2c.print(random.choice(available))
         barricade.barricade()
     else:
-        print.print(0)
-        print("No space.")
+        printi2c.print(0)
+        printi2c("No space.")
