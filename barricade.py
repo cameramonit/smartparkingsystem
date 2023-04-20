@@ -19,3 +19,5 @@ def barricade():
     SetAngle(30)
     pwm.stop()
     GPIO.cleanup()
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setup(16,GPIO.IN)

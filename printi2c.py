@@ -18,4 +18,5 @@ def printi2c(i):
     except KeyboardInterrupt:
         pass
     finally:
-        return
+        GPIO.setmode(GPIO.BOARD)
+        GPIO.setup(16,GPIO.IN)
