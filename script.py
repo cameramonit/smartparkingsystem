@@ -2,14 +2,16 @@ import func
 import RPi.GPIO as GPIO
 import time
 
-GPIO.setmode(GPIO.BCM)
+sensor = 16
 
-GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP) #Button to GPIO23
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(sensor,GPIO.IN)
 
-try:
+try: 
     while True:
-         button_state = GPIO.input(23)
-         if button_state == False:
+        if GPIO.input(sensor):
             func.func()
-except:
+            while GPIO.input(sensor):
+                time.sleep(0.4)
+except KeyboardInterrupt:
     GPIO.cleanup()
