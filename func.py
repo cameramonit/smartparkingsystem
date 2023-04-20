@@ -33,8 +33,8 @@ def func():
 
     if(len(available)>0):
         # print("Park at slot: ", random.choice(available))
-        printi2c.print(random.choice(available))
+        printi2c.printi2c(random.choice(available))
         barricade.barricade()
     else:
-        printi2c.print(0)
+        printi2c.printi2c(0)
         printi2c("No space.")

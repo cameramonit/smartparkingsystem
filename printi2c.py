@@ -1,4 +1,4 @@
-def print(i):
+def printi2c(i):
     import RPi.GPIO as GPIO
     from signal import signal, SIGTERM, SIGHUP, pause
     from rpi_lcd import LCD

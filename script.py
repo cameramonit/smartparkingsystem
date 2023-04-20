@@ -11,7 +11,6 @@ try:
     while True:
         if GPIO.input(sensor):
             func.func()
-            while GPIO.input(sensor):
-                time.sleep(0.4)
+            time.sleep(0.4)
 except KeyboardInterrupt:
-    GPIO.cleanup()
+    pass
