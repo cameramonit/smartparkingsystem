@@ -2,8 +2,10 @@ import RPi.GPIO as GPIO
 import time
 import func
 
+sensor = 16
+
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(16,GPIO.IN)
+GPIO.setup(sensor,GPIO.IN)
 
 try: 
     while True:
